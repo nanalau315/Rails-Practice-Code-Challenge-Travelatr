@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :posts
   resources :destinations
 
-  put '/posts/:id/like', to: 'posts#like', as: 'like'
+  patch '/posts/:id/like', to: 'posts#like', as: 'like_post'
 end

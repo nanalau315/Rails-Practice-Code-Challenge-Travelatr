@@ -6,10 +6,14 @@ class Blogger < ApplicationRecord
     validates :age, numericality: {greater_than: 0}
     validates :bio, length: {minimum: 30}
     
-    def average_age
-        age_arr = Blogger.all.map do |blogger|
-            blogger.age
-        end.uniq
-        age_arr.sum/age_arr.length
+    # def average_age
+    #     age_arr = Blogger.all.map do |blogger|
+    #         blogger.age
+    #     end.uniq
+    #     age_arr.sum/age_arr.length
+    # end
+
+    def top_five
+        self.destinations.max(5){|destination| destination.posts.count}
     end
 end

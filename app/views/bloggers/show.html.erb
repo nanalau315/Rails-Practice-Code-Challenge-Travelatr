@@ -6,4 +6,10 @@
 <% @blogger.posts.each do |post|%>
 <p><%= link_to post.title, post_path(post) %><p>
 
+
+
+<% end %>
+
+<% @blogger.top_five.each do |p| %>
+<p><%= p.name %></p>
 <% end %>

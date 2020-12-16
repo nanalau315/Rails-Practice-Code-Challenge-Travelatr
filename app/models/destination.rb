@@ -3,10 +3,14 @@ class Destination < ApplicationRecord
     has_many :bloggers, through: :posts
 
     def average_age
-        age_arr = Blogger.all.map do |blogger|
-            blogger.age
-        end.uniq
-        age_arr.sum/age_arr.length
+        total_age = self.bloggers.uniq.sum{|blogger|blogger.age}
+        total_bloggers = self.bloggers.uniq.count
+        avg = total_age.to_f / total_bloggers
+
+        # age_arr = Blogger.all.map do |blogger|
+        #     blogger.age
+        # end.uniq
+        # age_arr.sum/age_arr.length
     end
 
     def feature_post
