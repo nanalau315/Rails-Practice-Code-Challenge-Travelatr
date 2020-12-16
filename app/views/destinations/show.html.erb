@@ -1,0 +1,10 @@
+<h1><%= @destination.name %></h1>
+
+<% @destination.posts.last(5).each do |post| %>
+<p><%= post.title %></p>
+<% end %>
+<h3>Average Age:</h3>
+<%= @destination.average_age %>
+<br>
+<h3>Feature Post:</h3>
+<%= @destination.feature_post %>
